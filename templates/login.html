@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<style>
+    .formd{
+        background-color: #fbf8fb;
+        border-radius: 22px;
+        padding: 12px;
+        opacity: 0.9;
+        position:relative;
+        top:10px;
+        left:10px;
+        
+    }
+    @media only screen and (max-width: 450px) {
+
+            .formd{
+                position: relative;
+                top:7em;
+                opacity: 0.9;
+                left: 0px;
+            }
+        
+      }
+      .asteriskField{
+          color:#f2f1f0;
+      }
+
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        
+        <div class="col-md-3 formd">
+            <div class="col-md-12 text-center">
+
+                <img src="{% static 'logo.jpg' %}" class="col-md-12" style="padding: 18px; border-radius:12px;">
+
+            </div>
+         
+            <h4 class="text-center" style="color:darkslategray;margin-top:33px;">TMH ONLINE PATIENT REFERRAL</h4>
+            {% for message in messages %}
+             
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{message}}</strong> You should check in on some of those fields below.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+             {% endfor %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{loginform|crispy}}
+                <input type="submit" class="btn btn-primary" value="Sign in" style="position: relative;top:10px;">
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+    document.getElementById('id_username').placeholder = "Enter Username";
+    document.getElementById('id_password').placeholder = "Enter Password";
+    document.getElementById('id_username').label = "Type Username";
+    document.getElementsByClassName('asteriskField').innerHTML=" ";
+    document.getElementById('id_vehicle_type').placeholder = "Select Vehicle Type";
+</script>
+
+
+
+
+
+
+
+{% endblock %}

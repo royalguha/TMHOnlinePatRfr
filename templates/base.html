@@ -1,0 +1,102 @@
+{% load static %}
+
+
+<style>
+  *{
+    font-family: 'Cabin', sans-serif;
+    
+  
+  }
+ 
+  input:focus::placeholder {
+    color: transparent;
+  }
+  #footer {
+    position: fixed;
+    opacity: 0.7;
+    padding: 10px 10px 0px 10px;
+    bottom: 0;
+    background-color: black;
+   
+    /* Height of the footer*/ 
+    
+    
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+/* Chrome, Safari */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+  }
+  ::-webkit-scrollbar-track-piece  {
+  background-color: #696565;
+  }
+  ::-webkit-scrollbar-thumb:vertical {
+  height: 30px;
+  background-color: #000000;
+  }
+</style>
+
+<!doctype html>
+
+<html lang="en">
+  
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'logo.jpg' %}">
+    <title>TMH-Online Patient Referral</title>
+  </head>
+  <body style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, -5)),url('{% static 'bkg.jpg' %}');background-repeat: no-repeat;background-size: cover;background-position:center;">
+      
+
+    {% block content %}
+    
+
+
+    {% endblock %}
+    <div class="container-fluid">
+
+      <div class="row">
+        <div id="footer" class="col-md-12  text-white text-center p-25">
+          <h6>This system is designed and maintained by IT Team | &#169;The Mission Hospital</h6>
+        </div>
+      </div>
+
+    </div>
+    
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+  <script type="text/javascript">
+    window.history.forward();
+    function noBack() {
+        window.history.forward();
+    }
+</script>
+</html>

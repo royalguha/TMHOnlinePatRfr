@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+<style>
+    .bkg{
+        background-color: white;
+        border-radius: 22px;
+        padding: 12px;
+        opacity: 0.9;
+        
+        
+    }
+
+    #footer{
+        left: 0px;
+    }
+
+    #div_id_is_cancel{
+        display: none;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 bkg bg-dark">
+            <button class="btn btn-warning">Welcome {{user.first_name}}</button>
+    
+    
+            <a href="{% url 'home' %}" class="btn btn-warning">Home</a>
+        
+        
+            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+
+        </div>
+        
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4 bkg" style="margin-bottom: 50px;margin-top:20px;">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{form|crispy}}
+
+                <input type="submit" class="btn btn-primary">
+                
+                
+             <!--   <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#cancel">
+                    Cancel
+                  </button> -->
+            </form>
+            
+        </div>
+    </div>
+</div>
+
+<!--Modal-->
+<div class="modal fade" id="cancel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Enter Cancel Remarks</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="col-md-12">
+
+            <form action="" method="post">
+              {% csrf_token %}
+            
+              
+              <input name="id" type="hidden" value="id">
+              <input name="remarks" type="textarea" required="required" class="form-control" placeholder="Enter Cancel Remarks">
+              <input type="submit" class="btn btn-primary"  style="margin-top: 5px;">
+            </form>
+
+          </div>
+          
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <!--Modal-->
+<script>
+    document.getElementById('id_is_cancel').checked = true;
+    document.getElementById('id_is_cancel').checked = "checked";
+
+    document.getElementById('id_admission_date').type = "date";
+
+
+
+    document.getElementById('div_id_is_cancel').style.display = "none";
+    
+    
+
+   
+
+
+
+   
+    
+</script>
+
+{% endblock %}
